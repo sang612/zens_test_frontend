@@ -21,6 +21,9 @@ const Button = () => {
   }, [arrJokeState]);
 
   const handleChangeJoke = (value) => {
+    if (!jokePicked) {
+      return;
+    }
     setArrJokeState([...arrJokeState, value]);
     dispatch(getCookieArr([...arrJokeState, value]));
     dispatch(changeJoke(value));
